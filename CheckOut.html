@@ -169,22 +169,22 @@
     </span>
 </div>
 
-    <div class="container">
+    <form class="container" action="./CheckOut_step2.html">
         <h3>Guest Checkout</h3>
         <div>Contact information</div>
         <p>We will use these details to keep you informed on your delivery.</p>
 
         <div class="shipping">
             <label for="email">Email</label>
-            <input type="email" id="email" placeholder="email">
+            <input type="email" id="email" name="email" placeholder="email">
 
             <label for="phone">Phone Number</label>
-            <input type="tel" id="phone" placeholder="+91-8754235921">
+            <input type="tel" id="phone" name="phone" placeholder="+91-8754235921">
 
             <h4>1. Shipping Information</h4>
             
             <label for="country">Country</label>
-            <select id="country">
+            <select id="country" name="country">
                 <option value="">Select country</option>
                 <option value="India">India</option>
                 <option value="Nepal">Nepal</option>
@@ -198,25 +198,25 @@
             <div class="name-fields">
                 <div>
                     <label for="first-name">First Name</label>
-                    <input type="text" id="first-name" placeholder="First Name">
+                    <input type="text" name="fname" id="first-name" placeholder="First Name">
                 </div>
                 <div>
                     <label for="last-name">Last Name</label>
-                    <input type="text" id="last-name" placeholder="Last Name">
+                    <input type="text" name="lname" id="last-name" placeholder="Last Name">
                 </div>
             </div>
 
             <label for="address">Street Address</label>
-            <input type="text" id="address" placeholder="Street Address">
+            <input type="text" id="address" name="address" placeholder="Street Address">
 
             <label for="address-2">Street Address Line 2</label>
-            <input type="text" id="address-2" placeholder="Street Address Line 2">
+            <input type="text" name="address2" id="address-2" placeholder="Street Address Line 2">
 
             <label for="city">City</label>
-            <input type="text" id="city" placeholder="City">
+            <input type="text" name="city" id="city" placeholder="City">
 
             <label for="state">State</label>
-            <select id="state">
+            <select id="state" name="state">
                 <option value="">Select state</option>
                 <option value="Bihar">Bihar</option>
                 <option value="Punjab">Punjab</option>
@@ -224,11 +224,11 @@
             </select>
 
             <label for="zip">ZIP Code</label>
-            <input type="text" id="zip" placeholder="ZIP Code">
+            <input type="text" id="zip" name="zip" placeholder="ZIP Code">
         </div>
 
-        <button id="ship-btn">Continue to Shipping Method</button>
-    </div>
+        <button id="ship-btn" type="submit">Continue to Shipping Method</button>
+    </form>
 
     <div class="container">
         <div id="summary">

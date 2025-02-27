@@ -1,15 +1,204 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-          <meta charset="UTF-8">
-          <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Document</title>
-          <link rel="stylesheet" href="./Styles.css">
-          <script src="./index.js"></script>
+    <meta charset="UTF-8">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./Styles.css">
+    <script src="./index.js"></script>
+    <script>
+        let params = new URLSearchParams(location.search);
+        let obj = {};
+        params.forEach((value, key) => {
+            obj[key] = value;
+        })
+        console.log(obj)
+        document.addEventListener("DOMContentLoaded", () => {
+            document.getElementById("address").innerHTML = `${obj.address}`;
+            document.getElementById("email").innerText = `${obj.email}`;
+            document.getElementById("phone").innerHTML = `${obj.phone}`;
+            document.getElementById("address2").innerHTML = `${obj.address2}`;
+            document.getElementById("zip").innerHTML = `${obj.zip}`;
+            document.getElementById("state").innerHTML = `${obj.state}`;
+        })
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            color: black;
+            text-decoration: none;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #333;
+            padding: 10px 20px;
+            color: white;
+        }
+
+        .nav-bar span {
+            font-size: 18px;
+        }
+
+        .nav-bar #title {
+            font-weight: bold;
+        }
+
+        .nav-bar a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .modal {
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .h2 {
+            margin-left: 30px;
+            color: black;
+        }
+
+        .info-box {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        .left-box {
+            border: 1px solid black;
+            padding: 10px;
+            color: black;
+        }
+        #payment{
+            padding: 10px;
+            margin: 10px 0px 20px 0px;
+            border: 2px solid blueviolet;
+            color: rgb(128, 5, 181);
+            border-radius: 5px;
+            text-align: center;
+            margin-left: 40px;
+            cursor: pointer;
+           }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+
+        table th, table td {
+            padding: 10px;
+            border: 1px solid black;
+            text-align: left;
+        }
+
+        .info-box .left-box span {
+            font-weight: bold;
+        }
+
+        input[type="radio"] {
+            margin-top: 7px;
+        }
+
+        @media (max-width: 768px) {
+            .info-box {
+                grid-template-columns: 1fr;
+            }
+
+            table {
+                width: 100%;
+                font-size: 14px;
+            }
+
+            .nav-bar {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .nav-bar #justify {
+                margin-bottom: 10px;
+            }
+
+            .modal {
+                padding: 10px;
+            }
+
+            .info-box .left-box {
+                width: 100%;
+                padding: 15px;
+            }
+           #payment{
+            padding: 10px;
+            margin: 10px 0px 20px 0px;
+            border: 2px solid blueviolet;
+            color: rgb(128, 5, 181);
+            border-radius: 5px;
+            text-align: center;
+            margin-left: 40px;
+            cursor: pointer;
+           }
+            .h2 {
+                font-size: 24px;
+            }
+
+            .nav-bar a {
+                margin-right: 10px;
+            }
+
+            .info-box input[type="radio"] {
+                margin-top: 10px;
+            }
+
+            .modal hr {
+                margin: 10px 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .nav-bar #title {
+                font-size: 16px;
+            }
+
+            .info-box .left-box p {
+                font-size: 14px;
+            }
+
+            .info-box table th, .info-box table td {
+                font-size: 12px;
+            }
+
+            .modal {
+                padding: 5px;
+            }
+
+            .info-box .left-box {
+                padding: 10px;
+            }
+
+            .h2 {
+                font-size: 20px;
+            }
+
+            .modal a {
+                display: block;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
 </head>
 <body>
-         <div class="nav-bar">
+    <div class="nav-bar">
         <span id="justify">
             <span class="fa-solid fa-align-justify"></span>
         </span>
@@ -17,39 +206,100 @@
             <span id="title">V E N I A</span>
         </div>
         <div id="modal-2">
-            <a href="index.html">Home</a>   
+            <a href="index.html">Home</a>
             <span id="women">Women</span>
             <span id="mens">Men</span>
             <span>Smart Gear</span>
             <span>Accessories</span>
         </div>
         <span>
-            <i class="fa-solid fa-cart-plus"><span class="badge"></span></i>
+            <i class="fa-solid fa-cart-plus"><span></span></i>
         </span>
     </div>
 
-
-                  <div class="modal" style="display: none;">
-
-                    <span>Filters</span>
-                     <span id="close" style="float: right; cursor: pointer; background-color: aliceblue; border-radius: 50%; padding: 5px;">X</span>
-                     <hr>
-                     <div>
-                       <input type="checkbox" name="jewelery" id=""><span>Jewelery</span> 
-                       </div>
-                       <div>
-                       <input type="checkbox" name="electronics" id=""><span>Electronics</span>
-                       </div>
-                       <div>
-                       <input type="checkbox" name="men's clothing" id=""><span>Men's Clothing</span> 
-                       </div>
-                       <div>
-                       <input type="checkbox" name="women's clothing" id=""><span>Women's Clothing</span>
-                       </div>
-                       <hr>
-                       <div class="total-product">
-                        <span>SEE</span> <span id="count" ></span> <span>RESULTS</span> 
-                       </div>
-                     </div>      
+    <div class="modal" style="display: none;">
+        <span>Filters</span>
+        <span id="close" style="float: right; cursor: pointer; background-color: aliceblue; border-radius: 50%; padding: 5px;">X</span>
+        <hr>
+        <div>
+            <a href="index.html"><span>Home</span>
+        </div>
+        <div>
+            <a href="Nevia.html"><span>All products</span>
+        </div>
+        <div>
+            <a href="CheckOut.html"><span>Back</span>
+        </div>
+        <hr>
+        <div class="total-product">
+            <span>SEE</span> <span id="count"></span> <span>RESULTS</span>
+        </div>
+    </div>
+    <h2 class="h2">Guest Checkout</h2>
+    <div class="info-box">
+        <div class="left-box">
+            <span>Shipping Information</span>
+            <span class="fas fa-edit" style="float: right; margin-right: 5px;"> Edit</span>
+            <p id="address"></p>
+            <p id="email"></p>
+            <p id="phone"></p>
+            <span id="address2"></span>
+            <p id="zip"></p>
+            <p id="state"></p>
+        </div>
+        <div>
+            <table>
+                <thead>
+                    <tr>
+                        <dt>Pricing Summary</dt>
+                    </tr>
+                </thead>
+                <body>
+                    <tr>
+                        <td>Subtotal</td>
+                        <td>$388.0</td>
+                    </tr>
+                    <tr>
+                        <td>Coupon</td>
+                        <td>-$77.0</td>
+                    </tr>
+                    <tr>
+                        <td>Gift Card</td>
+                        <td>-$100.0</td>
+                    </tr>
+                    <tr>
+                        <td>Tax</td>
+                        <td>$23.0</td>
+                    </tr>
+                    <tr>
+                        <td>Estimated shipping</td>
+                        <td>FREE</td>
+                    </tr>
+                    <tr>
+                        <td>Estimated Total</td>
+                        <td>$288.0</td>
+                    </tr>
+                </body>
+            </table>
+        </div>
+        <form action="./CheckOut_step3.html">
+            <div>
+            <h4>2. Shipping Method</h4>
+            <div>
+                <input type="radio" data-val="Standard Shipping (4-8 business days via UPSP) FREE" name="pay"><span>Standard Shipping (4-8 business days via UPSP) FREE</span>
+            </div>
+            <div>
+                <input type="radio" data-val="Express delivery (2-5 business days via UPSP) $17.98" name="pay"><span>Express delivery (2-5 business days via UPSP) $17.98</span>
+            </div>
+            <div>
+                <input type="radio" data-val="Next day Delivery (Next business day via FedEx) $53.61" name="pay"><span>Next day Delivery (Next business day via FedEx) $53.61</span>
+            </div>
+        </div>
+        
+    </div>
+    <div>
+        <button id="payment" type="submit">CONTINUE TO PAYMENT</button>
+    </div>
+</form>
 </body>
 </html>
