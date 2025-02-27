@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Guest Checkout</title>
+    <link rel="stylesheet" href="./Styles.css">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
     <style>
         /* Global Styles */
@@ -66,19 +67,15 @@
             border-radius: 8px;
             display: none;
         }
-
-        /* Form styles */
         .shipping {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
-
         .shipping label {
             font-weight: bold;
             margin-bottom: 5px;
         }
-
         .shipping input,
         .shipping select {
             padding: 12px;
@@ -106,7 +103,6 @@
         .shipping .name-fields input {
             width: 48%;
         }
-
         #ship-btn {
             padding: 12px 20px;
             background-color: #0c3e9b;
@@ -118,18 +114,19 @@
             margin-top: 20px;
             width: 100%;
         }
-
+        #box {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 15px;
+        }
         #ship-btn:hover {
             background-color: #084b8d;
         }
-
-        /* Summary Styles */
         #summary {
             display: flex;
             flex-direction: column;
             gap: 15px;
         }
-
         #summary span {
             display: flex;
             justify-content: space-between;
@@ -144,12 +141,10 @@
             text-align: right;
         }
 
-        /* Responsive Design */
         @media (max-width: 768px) {
             .shipping .name-fields {
                 flex-direction: column;
             }
-
             .shipping .name-fields input {
                 width: 100%;
                 margin-bottom: 10px;
