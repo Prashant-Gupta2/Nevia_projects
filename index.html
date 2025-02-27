@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="Styles.css">
+    <script src="index.js">
+        
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded",()=>{
+         let category=document.querySelectorAll(".shade"); 
+          category.forEach((item)=>{
+           item.addEventListener("click",(e)=>{
+            if(e.target.textContent==="Shop Men"){
+              location.href="./Nevia.html?key=mens";
+            } 
+            else if(e.target.textContent==="Jewelery"){
+                location.href="./Nevia.html?key=jewelery";
+            }
+            else if(e.target.textContent==="Electronics"){
+                location.href="./Nevia.html?key=electronics";
+            }
+            else if(e.target.textContent==="Shop Women"){
+                location.href="./Nevia.html?key=womens";
+            }
+           })
+          })
+        })
+    </script>
+    <style>
+        h2 {
+            text-align: center;
+            margin-top: 20px;
+        }
+        .main {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            padding: 20px;
+        }
+        .left-box {
+            background-color: rgba(152, 159, 166, 0.824);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        .left-box button {
+            background-color: rgb(61, 61, 185);
+            color: #fff;
+            padding: 10px;
+            font-size: 20px;
+            border-radius: 5px;
+            width: 200px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        .right-box img {
+            width: 100%;
+            height: auto;
+        }
+
+        section {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            padding: 20px;
+        }
+
+        section div {
+            background-color: azure;
+            border: none;
+            box-shadow: 2px 2px 2px 2px gray;
+            width: 100%;
+            max-width: 250px;
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .shade {
+            background-color: black;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            border: none;
+            width: 100%;
+            position: absolute;
+            bottom: 10px;
+            cursor: pointer;
+            opacity: 0.7;
+        }
+
+        .btn-collection {
+            padding: 10px;
+            border-color: rgb(67, 115, 211);
+            color: rgb(4, 54, 146);
+            font-weight: 500;
+            cursor: pointer;
+            border-radius: 10px;
+            font-size: 13px;
+        }
+
+        .btn-shop {
+            background-color: rgb(61, 61, 185);
+            color: #fff;
+            padding: 11px;
+            font-size: 14px;
+            border-radius: 5px;
+            width: 150px;
+            border: none;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+
+        main {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            padding: 20px;
+        }
+
+        .desc {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: 1px solid gray;
+            padding: 10px;
+            width: 100%;
+            max-width: 300px;
+            margin-bottom: 20px;
+        }
+
+        .desccription {
+            font-size: 25px;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        footer {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            padding: 20px;
+            background-color: #333;
+            color: white;
+        }
+
+        footer span, footer p {
+            font-size: 14px;
+        }
+
+        footer div {
+            padding: 10px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        @media screen and (max-width: 768px) {
+            .main {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .left-box {
+                padding: 20px;
+                text-align: center;
+            }
+
+            .left-box button {
+                width: 80%;
+                font-size: 18px;
+            }
+
+            section div {
+                width: 100%;
+                margin-bottom: 20px;
+            }
+
+            .desc {
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            footer {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            footer div {
+                padding: 5px;
+                margin: 10px 0;
+            }
+
+            .shadow {
+                width: 100%;
+            }
+        }
+
+        @media screen and (max-width: 480px) {
+            .main {
+                margin-top: 20px;
+                gap: 10px;
+            }
+
+            .left-box {
+                display: flex;
+                justify-content: center;
+                padding: 20px;
+            }
+
+            .right-box img {
+                width: 100%;
+            }
+
+            .shade {
+                width: 90%;
+                padding: 15px;
+            }
+
+            section div {
+                width: 100%;
+                margin: 5px 0;
+            }
+
+            .btn-collection, .btn-shop {
+                width: 90%;
+                font-size: 16px;
+                padding: 10px;
+            }
+
+            .desc {
+                width: 90%;
+            }
+
+            .parent img {
+                width: 100%;
+                margin: 10px auto;
+            }
+            
+        }
+    </style>
+</head>
+<body>
+    <h2>Home Page</h2>
+    <div class="nav-bar">
+        <span id="justify">
+          <span class="fa-solid fa-align-justify"></span> 
+        </span>
+       <div>
+         <span id="title">V E N I A</span> 
+       </div>
+       <div id="modal-2">
+        <a href="index.html">Home</a>   
+        <span id="women">Women</span>
+        <span id="mens">Men</span>
+        <span>Smart Gera</span>
+        <span>Aceessories</span>
+       </div>
+        <span>
+           <i class="fa-solid fa-cart-plus"><span class="badge"></span></i>
+        </span>
+      </div> 
+
+    <div class="main">
+        <div class="left-box">
+            <div>
+                <h1>Shop the new <br /> Signature Collection</h1>
+                <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit. Dicta vel pariatur, repellat dolores obcaecati natus quam facere sed quaerat a minus corrupti velit, maiores vitae illo necessitatibus quas, quibusdam earum.
+                </p>
+                <button>Shop now</button>
+            </div>
+        </div>
+        <div class="right-box">
+            <img src="https://img.freepik.com/free-photo/pair-man-woman-wearing-glasses-carried-lots-paper-bags-shopping_1150-27739.jpg?ga=GA1.1.609540410.1737607046&semt=ais_hybrid" alt="">
+        </div>
+    </div>
+
+    <section>
+        <div>
+            <img src="https://fakestoreapi.com/img/71YXzeOuslL._AC_UY879_.jpg" width="200px" height="270" alt="">
+            <div class="shade" >Shop Men</div>
+        </div>
+        <div>
+            <img src="https://fakestoreapi.com/img/71YAIFU48IL._AC_UL640_QL65_ML3_.jpg" width="200" height="270" alt="">
+            <div class="shade">Jewelery</div>
+        </div>
+        <div>
+            <img src="https://fakestoreapi.com/img/61mtL65D4cL._AC_SX679_.jpg" width="200" height="270" alt="">
+            <div class="shade" >Electronics</div>
+        </div>
+        <div>
+            <img src="https://fakestoreapi.com/img/71HblAHs5xL._AC_UY879_-2.jpg" width="200" height="270" alt="">
+            <div class="shade" >Shop Women</div>
+        </div>
+    </section>
+
+    <main>
+        <div class="desc">
+            <div class="desccription">Take off in the new</div>
+            <div class="desccription">Signature Laging</div>
+            <div class="heading">
+                <h3>Top collections here</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit.<br /> Alias nobis totam incidunt expedita? Maiores neque<br /> tempore, aspernatur rem, modi aliquam unde quos dolorum <br /> alias maxime ducimus harum quibusdam. Tempora, nobis.</p>
+            </div>
+            <div class="btn">
+                <button class="btn-collection">SHOP COLLECTION</button>
+                <button class="btn-shop">SHOP NOW</button>
+            </div>
+        </div>
+        <div>
+            <img src="https://img.freepik.com/free-photo/beautiful-young-blonde-woman-sunglasses-holding-shopping-bags-pink-wall_496169-1495.jpg?ga=GA1.1.609540410.1737607046&semt=ais_hybrid" alt="">
+        </div>
+    </main>
+
+    <div>
+        <div class="parent">
+            <img src="https://img.freepik.com/free-photo/portrait-young-asian-woman-isolated-blue-studio-space_155003-12397.jpg?t=st=1740566453~exp=1740570053~hmac=e5e9e23644acda7b2dd7d502331d16be7eea86106acd9ff79f0671627f4ce019&w=1380" alt="">
+        </div>
+        <div class="shadow"></div>
+    </div>
+
+    <hr>
+
+    <footer>
+        <div>
+            <h4 class="foot">Account</h4>
+            <span>Sign In</span>
+            <span>Register</span>
+            <span>Order Status</span>
+            <span>Return</span>
+        </div>
+        <div>
+            <h4 class="foot">About us</h4>
+            <span>Our Story</span>
+            <span>Email Sign up</span>
+            <span>Give Back</span>
+            <span>Blog</span>
+        </div>
+        <div>
+            <h4 class="foot">Help</h4>
+            <span>Live Chat</span>
+            <span>Contact Us</span>
+            <span>Order Status</span>
+            <span>Return</span>
+        </div>
+        <div>
+            <h4 class="foot">Follow Us</h4>
+            <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quae<br /> totam quas officia iusto tempora ab provident esse <br /> odio et explicabo cum mollitia fugit, eos saepe. Quidem libero deserunt atque.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>

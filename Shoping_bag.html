@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Bag</title>
+    <script src="./index.js"></script>
+    <script>
+        let c = 0;
+        function dscr() {
+            if(c > 0){
+                c--; 
+                document.getElementById("counter").innerText = c;        
+            }
+        } 
+        function incr() {
+            c++;
+            document.getElementById("counter").innerText = c;        
+        } 
+        document.addEventListener("DOMContentLoaded", () => {
+            let data = location.search;
+            let product = data.slice(1);
+            let item = product.slice(2);
+            let div = document.createElement("div");
+            fetch(`https://fakestoreapi.com/products/${item}`)
+                .then(response => response.json())
+                .then(data => {
+                    div.innerHTML = `
+                        <div id="cart_details">
+                            <div class="left">
+                                <img src=${data.image} width="300" alt="">
+                            </div>
+                            <div class="right">
+                                <h2>Title: ${data.title}</h2>
+                                <h4>Price: &#36;${data.price}</h4>
+                                <h5>Ratings: ${data.rating.rate} &#9733;</h5>
+                                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Mollitia pariatur ex quasi debitis porro excepturi eum cum. Excepturi corporis, pariatur debitis quasi ut numquam sint necessitatibus quaerat eius, aliquam voluptas?</p>
+                                <hr/>
+                                <div>Quantity</div>
+                                <div class="buttons">
+                                    <button><span onclick="dscr()" class="fa-solid fa-minus"></span></button>
+                                    <button id="counter">0</button>
+                                    <button><span onclick="incr()" class="fa-solid fa-plus"></span></button>
+                                </div>
+                                <div id="box">
+                                    <h4>Price Summary</h4>
+                                    <div id="summary">
+                                        <span>Subtotal</span> <span>&#36;${data.price} </span>  
+                                        <span>Coupon</span> <span>&#36;${data.price} </span>      
+                                        <span>Discount</span> <span>&#36;-${data.price * 2} </span>      
+                                        <span>Gift Card</span> <span>&#36;-${data.price} </span>      
+                                        <span>Estimated Shipping</span> <span>&#36;${data.price} </span>      
+                                        <span>Estimated Tax</span> <span> FREE </span> 
+                                        <span>Estimated Total</span> <span>&#36;${data.price * 3} </span>            
+                                    </div>
+                                    <button>CHECKOUT</button>  
+                                    <button>PayPal</button>                          
+                                </div>         
+                                <button class="cart" onclick="addToCart(event)">Add To Cart</button>
+                                <div class="share">
+                                    <div><span class="fa-solid fa-heart"></span> Save</div>
+                                    <div><span class="fa-solid fa-share"></span> Share</div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                });
+            document.getElementById("shop").appendChild(div);
+        });
+    </script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            background-color: #333;
+            color: white;
+            padding: 10px 20px;
+        }
+
+        #justify {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 20px;
+            cursor: pointer;
+        }
+
+        #title {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        #modal-2 {
+            display: flex;
+            align-items: center;
+        }
+
+        #modal-2 a, #modal-2 span {
+            margin-left: 15px;
+            cursor: pointer;
+            color: white;
+            text-decoration: none;
+        }
+
+        #modal-2 a:hover, #modal-2 span:hover {
+            text-decoration: underline;
+        }
+
+        #cart_details {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 20px;
+        }
+
+        .left {
+            flex: 1;
+            max-width: 350px;
+            margin-right: 20px;
+        }
+
+        .right {
+            flex: 2;
+            max-width: 600px;
+            margin-left: 20px;
+        }
+
+        #box {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 15px;
+        }
+
+        #summary {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .buttons button, #counter {
+            margin: 5px;
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+        }
+
+        .cart {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+
+        .cart:hover {
+            background-color: #45a049;
+        }
+
+        .share {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+
+        .share div {
+            cursor: pointer;
+        }
+
+        .share div:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            #cart_details {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .left, .right {
+                max-width: 100%;
+                margin: 0;
+            }
+
+            #box {
+                width: 100%;
+                margin-top: 20px;
+            }
+
+            .buttons button, #counter {
+                font-size: 18px;
+            }
+
+            .cart {
+                width: 100%;
+                padding: 15px;
+            }
+
+            .share {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            display: grid;
+            grid-template-columns: 1fr 1fr 1fr 1fr;
+            gap: 20px;
+        }
+
+        footer div {
+            padding: 10px;
+        }
+
+        footer a {
+            color: white;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="nav-bar">
+        <span id="justify">
+            <span class="fa-solid fa-align-justify"></span>
+        </span>
+        <div>
+            <span id="title">V E N I A</span>
+        </div>
+        <div id="modal-2">
+            <a href="index.html">Home</a>   
+            <span id="women">Women</span>
+            <span id="mens">Men</span>
+            <span>Smart Gear</span>
+            <span>Accessories</span>
+        </div>
+        <span>
+            <i class="fa-solid fa-cart-plus"><span class="badge"></span></i>
+        </span>
+    </div>
+
+    <div>
+        <h2 style="text-align: center;">Your <span style="text-decoration: underline; text-decoration-color: blue;">Shopping</span> Bag</h2>
+        <div id="shop">
+        </div>
+    </div>
+
+</body>
+</html>

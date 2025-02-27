@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VENIA</title>
+    <meta charset="UTF-8"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./Styles.css">
+  </head>
+
+  <body id="home">
+    <div id="app">
+         
+     <div class="nav-bar">
+       
+       <span id="justify">
+         <span class="fa-solid fa-align-justify"></span> 
+       </span>
+      <div>
+        <span id="title">V E N I A</span> 
+      </div>
+      <div id="modal-2">
+       <a href="index.html">Home</a>   
+       <span id="women">Women</span>
+       <span id="mens">Men</span>
+       <span>Smart Gera</span>
+       <span>Accessories</span>
+      </div>
+       <span>
+          <i class="fa-solid fa-cart-plus"><span class="badge">0</span></i>
+       </span>
+     </div>
+
+     <div class="modal" style="display: none;">
+
+         <span>Filters</span>
+          <span id="close" style="float: right; cursor: pointer; background-color: aliceblue; border-radius: 50%; padding: 5px;">X</span>
+          <hr>
+          <div>
+            <input type="checkbox" name="jewelery" id=""><span>Jewelery</span> 
+            </div>
+            <div>
+            <input type="checkbox" name="electronics" id=""><span>Electronics</span>
+            </div>
+            <div>
+            <input type="checkbox" name="men's clothing" id=""><span>Men's Clothing</span> 
+            </div>
+            <div>
+            <input type="checkbox" name="women's clothing" id=""><span>Women's Clothing</span>
+            </div>
+            <hr>
+            <div class="total-product">
+             <span>SEE</span> <span id="count" ></span> <span>RESULTS</span> 
+            </div>
+          </div>  
+     <div class="nav">
+          <div class="banner">
+          <img src="https://img.freepik.com/free-photo/portrait-tourist-takesoff-sunglasses-saying-wow-staring-impressed-camera-checking-out-cool_1258-158955.jpg?ga=GA1.1.609540410.1737607046&semt=ais_hybrid" alt=""> 
+          </div>
+          <div class="top-sec">
+          <h2>Men's <br/> <span class="gap">Outerwear</span></h2>
+          <div class="hr"></div>
+          </div>  
+     </div>
+
+     <div class="category">
+         <div>
+          <span>Clothing /</span> 
+          <span>Women's /</span>  
+          <span>Outerwear</span>
+         </div> 
+          <div id="sort"> 
+          <select onchange="changeType()">
+          <option value="-1">Sort By</option>         
+          <option value="price">Sort by Price</option>
+          <option value="rating">Sort By Ratings</option>
+          </select>
+          </div>    
+        </div>
+        <div class="filter">
+          <div class="search-container">
+            <input id="products" type="text" onchange="handleInput(event)" placeholder="Product Search...">
+            <span class="fa-solid fa-search"></span>
+            <dd id="error"></dd>
+          </div>
+            <div><i class="fas fa-filter"></i> Filter Result</div>
+          <div>  <span id="sorted" class="fa-solid fa-sort-alpha-desc"> <span id="font">Sort Products</span></span> </div>
+         
+        </div>
+       
+    </div>
+     <div class="product-count">
+       <span id="counts"></span> <span>Results</span> 
+     </div>
+    
+     <hr>
+    
+     <section>
+          <div id="left">
+           <h4>Filters</h4> 
+           <hr>
+           <h4>Categories</h4>
+           <div class="left-panel">
+          <div>
+          <input type="checkbox" name="jewelery" id=""><span>Jewelery</span> 
+          </div>
+          <div>
+          <input type="checkbox" name="electronics" id=""><span>Electronics</span>
+          </div>
+          <div>
+          <input type="checkbox" name="men's clothing" id=""><span>Men's Clothing</span> 
+          </div>
+          <div>
+          <input type="checkbox" name="women's clothing" id=""><span>Women's Clothing</span>
+          </div>
+           </div>
+           <hr>
+          </div>
+          <div id="card">
+          
+          </div>
+     </section>
+    <hr>
+    <footer>
+      <div>
+        <h4 class="foot">Account</h4> 
+        <span>Sign In</span> 
+        <span>Register</span>
+        <span>Order Status</span>
+        <span>Return</span>
+      </div>
+      <div>
+        <h4 class="foot">About us</h4>
+        <span>Our Story</span> 
+        <span>Email Sign up</span>
+        <span>Give Back</span>
+        <span>Blog</span>
+      </div>  
+      <div>
+          <h4 class="foot">Help</h4>
+          <span>Live Chat</span> 
+          <span>Contact Us</span>
+          <span>Order Status</span>
+          <span>Return</span>  
+      </div> 
+      <div>
+          <h4 class="foot">Follow Us</h4>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatum quae<br/> totam quas officia iusto tempora ab provident esse <br/> odio et explicabo cum mollitia fugit, eos saepe. Quidem libero deserunt atque.        
+          </p>
+      </div> 
+    </footer>
+    <hr>
+    <div class="bottom">
+     <div>V I N E A</div>
+     <div>&#169; Company Name Address</div>  
+     <div><span>Terms of Use</span> <span>Privacy Policy</span></div>   
+    </div>
+     <div id="cart_details">
+
+     </div>
+    <script src="./index.js"></script>
+  </body>
+</html>
