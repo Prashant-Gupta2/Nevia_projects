@@ -1,53 +1,251 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-          <meta charset="UTF-8">
-          <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
-          <meta name="viewport" content="width=device-width, initial-scale=1.0">
-          <title>Document</title>
-          <link rel="stylesheet" href="./Styles.css">
-          <script src="./index.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guest Checkout</title>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <style>
+        /* Global Styles */
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f7fc;
+            margin: 0;
+            padding: 0;
+        }
+
+        h3 {
+            color: #333;
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+            margin-bottom: 40px;
+        }
+
+        .nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #0c3e9b;
+            color: white;
+            padding: 15px;
+        }
+
+        .nav-bar #justify {
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .nav-bar #title {
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .nav-bar #modal-2 a {
+            color: white;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+
+        .nav-bar #modal-2 span {
+            color: white;
+            margin-right: 20px;
+        }
+
+        .modal {
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        /* Form styles */
+        .shipping {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .shipping label {
+            font-weight: bold;
+            margin-bottom: 5px;
+        }
+
+        .shipping input,
+        .shipping select {
+            padding: 12px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 14px;
+        }
+
+        .shipping input[type="text"],
+        .shipping input[type="email"],
+        .shipping input[type="tel"] {
+            width: 100%;
+        }
+
+        .shipping select {
+            width: 100%;
+        }
+
+        .shipping .name-fields {
+            display: flex;
+            justify-content: space-between;
+            gap: 15px;
+        }
+
+        .shipping .name-fields input {
+            width: 48%;
+        }
+
+        #ship-btn {
+            padding: 12px 20px;
+            background-color: #0c3e9b;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        #ship-btn:hover {
+            background-color: #084b8d;
+        }
+
+        /* Summary Styles */
+        #summary {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        #summary span {
+            display: flex;
+            justify-content: space-between;
+            font-size: 16px;
+        }
+
+        #summary span:nth-child(odd) {
+            font-weight: bold;
+        }
+
+        #summary span:nth-child(even) {
+            text-align: right;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .shipping .name-fields {
+                flex-direction: column;
+            }
+
+            .shipping .name-fields input {
+                width: 100%;
+                margin-bottom: 10px;
+            }
+        }
+    </style>
 </head>
 <body>
-          <div class="nav-bar">
-                    <span id="justify">
-                      <span class="fa-solid fa-align-justify"></span> 
-                    </span>
-                   <div>
-                     <span id="title">V E N I A</span> 
-                   </div>
-                   <div id="modal-2">
-                    <a href="Home.html">Home</a>   
-                    <span id="women">Women</span>
-                    <span id="mens">Men</span>
-                    <span>Smart Gera</span>
-                    <span>Aceessories</span>
-                   </div>
-                    <span>
-                       <i class="fa-solid fa-cart-plus"><span class="badge"></span></i>
-                    </span>
-                  </div> 
-                  <div class="modal" style="display: none;">
 
-                    <span>Filters</span>
-                     <span id="close" style="float: right; cursor: pointer; background-color: aliceblue; border-radius: 50%; padding: 5px;">X</span>
-                     <hr>
-                     <div>
-                       <input type="checkbox" name="jewelery" id=""><span>Jewelery</span> 
-                       </div>
-                       <div>
-                       <input type="checkbox" name="electronics" id=""><span>Electronics</span>
-                       </div>
-                       <div>
-                       <input type="checkbox" name="men's clothing" id=""><span>Men's Clothing</span> 
-                       </div>
-                       <div>
-                       <input type="checkbox" name="women's clothing" id=""><span>Women's Clothing</span>
-                       </div>
-                       <hr>
-                       <div class="total-product">
-                        <span>SEE</span> <span id="count" ></span> <span>RESULTS</span> 
-                       </div>
-                     </div>      
+  <div class="nav-bar">
+    <span id="justify">
+        <span class="fa-solid fa-align-justify"></span>
+    </span>
+    <div id="modal-2">
+        <a href="index.html">Home</a>   
+        <span id="women">Women</span>
+        <span id="mens">Men</span>
+        <span>Smart Gear</span>
+    </div>
+    <span>
+        <i class="fa-solid fa-cart-plus"><span class="badge"></span></i>
+    </span>
+</div>
+
+    <div class="container">
+        <h3>Guest Checkout</h3>
+        <div>Contact information</div>
+        <p>We will use these details to keep you informed on your delivery.</p>
+
+        <div class="shipping">
+            <label for="email">Email</label>
+            <input type="email" id="email" placeholder="email">
+
+            <label for="phone">Phone Number</label>
+            <input type="tel" id="phone" placeholder="+91-8754235921">
+
+            <h4>1. Shipping Information</h4>
+            
+            <label for="country">Country</label>
+            <select id="country">
+                <option value="">Select country</option>
+                <option value="India">India</option>
+                <option value="Nepal">Nepal</option>
+                <option value="Bangladesh">Bangladesh</option>
+                <option value="China">China</option>
+                <option value="Bhutan">Bhutan</option>
+                <option value="USA">USA</option>
+                <option value="Russia">Russia</option>
+            </select>
+
+            <div class="name-fields">
+                <div>
+                    <label for="first-name">First Name</label>
+                    <input type="text" id="first-name" placeholder="First Name">
+                </div>
+                <div>
+                    <label for="last-name">Last Name</label>
+                    <input type="text" id="last-name" placeholder="Last Name">
+                </div>
+            </div>
+
+            <label for="address">Street Address</label>
+            <input type="text" id="address" placeholder="Street Address">
+
+            <label for="address-2">Street Address Line 2</label>
+            <input type="text" id="address-2" placeholder="Street Address Line 2">
+
+            <label for="city">City</label>
+            <input type="text" id="city" placeholder="City">
+
+            <label for="state">State</label>
+            <select id="state">
+                <option value="">Select state</option>
+                <option value="Bihar">Bihar</option>
+                <option value="Punjab">Punjab</option>
+                <option value="West Bengal">West Bengal</option>
+            </select>
+
+            <label for="zip">ZIP Code</label>
+            <input type="text" id="zip" placeholder="ZIP Code">
+        </div>
+
+        <button id="ship-btn">Continue to Shipping Method</button>
+    </div>
+
+    <div class="container">
+        <div id="summary">
+            <span>Subtotal</span> <span>&#36;${data.price}</span>
+            <span>Coupon</span> <span>&#36;${data.price}</span>
+            <span>Discount</span> <span>&#36;-${data.price * 2}</span>
+            <span>Gift Card</span> <span>&#36;-${data.price}</span>
+            <span>Estimated Shipping</span> <span>&#36;${data.price}</span>
+            <span>Estimated Tax</span> <span>FREE</span>
+            <span>Estimated Total</span> <span>&#36;${data.price * 3}</span>
+        </div>
+    </div>
+
 </body>
 </html>
